@@ -1,8 +1,13 @@
 package Enteties;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "promos")
 public class Promo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public String id;
     public String titre;
     public String description;
