@@ -8,7 +8,7 @@ import java.util.Date;
 public class Promo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public String id;
+    public Long id;
     public String titre;
     public String description;
     public Date duree;
@@ -16,18 +16,18 @@ public class Promo {
     public Promo() {
     }
 
-    public Promo(String id, String titre, String description, Date duree) {
+    public Promo(Long id, String titre, String description, Date duree) {
         this.id = id;
         this.titre = titre;
         this.description = description;
         this.duree = duree;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

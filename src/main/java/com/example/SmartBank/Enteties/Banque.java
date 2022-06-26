@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Banque {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     private String raisonSociale;
     private int NbrClients;
@@ -20,7 +20,7 @@ public class Banque {
     public Banque() {
     }
 
-    public Banque(int id, String raisonSociale, int nbrClients, String tel, String fax, String email, int nbrAgences) {
+    public Banque(Long id, String raisonSociale, int nbrClients, String tel, String fax, String email, int nbrAgences) {
         this.id = id;
         this.raisonSociale = raisonSociale;
         NbrClients = nbrClients;
@@ -30,11 +30,11 @@ public class Banque {
         NbrAgences = nbrAgences;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

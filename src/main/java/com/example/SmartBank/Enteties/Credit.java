@@ -8,7 +8,7 @@ import java.util.Date;
 public class Credit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    public Long id;
 
     private double plafond;
     private String duree;
@@ -22,7 +22,7 @@ public class Credit {
     public Credit() {
     }
 
-    public Credit(int id, double plafond, String duree, double tauxInteret, double tmm, TypeClient typeClient, double montantAssurance, Date datePreEcheance, double montantAutoFinanc) {
+    public Credit(Long id, double plafond, String duree, double tauxInteret, double tmm, TypeClient typeClient, double montantAssurance, Date datePreEcheance, double montantAutoFinanc) {
         this.id = id;
         this.plafond = plafond;
         this.duree = duree;
@@ -34,11 +34,11 @@ public class Credit {
         this.montantAutoFinanc = montantAutoFinanc;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

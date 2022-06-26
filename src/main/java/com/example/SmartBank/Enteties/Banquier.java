@@ -9,7 +9,7 @@ import java.util.Date;
 public class Banquier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    public Long id;
     private String matricule;
     private String nom;
     private String prenom;
@@ -20,7 +20,7 @@ public class Banquier {
     public Banquier() {
     }
 
-    public Banquier(int id, String matricule, String nom, String prenom, double salaire, Date dateEmbauche, Date dateFinService) {
+    public Banquier(Long id, String matricule, String nom, String prenom, double salaire, Date dateEmbauche, Date dateFinService) {
         this.id = id;
         this.matricule = matricule;
         this.nom = nom;
@@ -30,11 +30,11 @@ public class Banquier {
         this.dateFinService = dateFinService;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

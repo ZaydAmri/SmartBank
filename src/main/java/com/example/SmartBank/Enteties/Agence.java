@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Agence {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     private String name;
     private String adresse;
@@ -16,18 +16,18 @@ public class Agence {
     public Agence() {
     }
 
-    public Agence(int id, String name, String adresse, int nbrInscrits) {
+    public Agence(Long id, String name, String adresse, int nbrInscrits) {
         this.id = id;
         this.name = name;
         this.adresse = adresse;
         this.nbrInscrits = nbrInscrits;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

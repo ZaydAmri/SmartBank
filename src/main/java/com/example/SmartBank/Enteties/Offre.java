@@ -9,7 +9,7 @@ public class Offre  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     private String type;
 
@@ -20,7 +20,7 @@ public class Offre  {
     public Offre() {
     }
 
-    public Offre(int id, String type, Date dateDebut, Date dateFin, int nbrInscrits) {
+    public Offre(Long id, String type, Date dateDebut, Date dateFin, int nbrInscrits) {
         this.id = id;
         this.type = type;
         this.dateDebut = dateDebut;
@@ -28,11 +28,11 @@ public class Offre  {
         this.nbrInscrits = nbrInscrits;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
