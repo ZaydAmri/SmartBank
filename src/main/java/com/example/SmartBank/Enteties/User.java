@@ -1,4 +1,4 @@
-package Enteties;
+package com.example.SmartBank.Enteties;
 
 
 
@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    public Long id;
     public String ipAdress;
     public String nom;
     public String prenom;
@@ -23,7 +23,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String ipAdress, String nom, String prenom, String adress, String cin, String telephone, String email, String nomUtilisateur, String motDePasse) {
+    public User(Long id, String ipAdress, String nom, String prenom, String adress, String cin, String telephone, String email, String nomUtilisateur, String motDePasse) {
         this.id = id;
         this.ipAdress = ipAdress;
         this.nom = nom;
@@ -38,11 +38,11 @@ public class User {
 
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

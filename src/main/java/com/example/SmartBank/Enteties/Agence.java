@@ -1,4 +1,4 @@
-package Enteties;
+package com.example.SmartBank.Enteties;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package Enteties;
+package com.example.SmartBank.Enteties;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,7 +13,7 @@ public class Client extends User{
     public Client() {
     }
 
-    public Client(int id, String ipAdress, String nom, String prenom, String adress, String cin, String telephone, String email, String nomUtilisateur, String motDePasse, String numeroCompte, String rib, String iban) {
+    public Client(Long id, String ipAdress, String nom, String prenom, String adress, String cin, String telephone, String email, String nomUtilisateur, String motDePasse, String numeroCompte, String rib, String iban) {
         super(id, ipAdress, nom, prenom, adress, cin, telephone, email, nomUtilisateur, motDePasse);
         this.numeroCompte = numeroCompte;
         this.rib = rib;
