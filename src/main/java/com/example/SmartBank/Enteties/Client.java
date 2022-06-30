@@ -1,40 +1,20 @@
 package com.example.SmartBank.Enteties;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
 public class Client extends User{
-    public String numeroCompte;
-    public String rib;
-    public String iban;
 
-    public Client() {
-    }
 
-    public Client(Long id, String ipAdress, String nom, String prenom, String adress, String cin, String telephone, String email, String nomUtilisateur, String motDePasse, String numeroCompte, String rib, String iban) {
-        super(id, ipAdress, nom, prenom, adress, cin, telephone, email, nomUtilisateur, motDePasse);
-        this.numeroCompte = numeroCompte;
-        this.rib = rib;
-        this.iban = iban;
-    }
+    private String iban;
+    private Date dateInscit;
+    private Long nbrVisite;
+    @OneToMany(mappedBy = "intitule",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Compte> listComptes;
 
-    public String getNumeroCompte() {
-        return numeroCompte;
-    }
-
-    public void setNumeroCompte(String numeroCompte) {
-        this.numeroCompte = numeroCompte;
-    }
-
-    public String getRib() {
-        return rib;
-    }
-
-    public void setRib(String rib) {
-        this.rib = rib;
-    }
 
     public String getIban() {
         return iban;
@@ -42,5 +22,29 @@ public class Client extends User{
 
     public void setIban(String iban) {
         this.iban = iban;
+    }
+
+    public Date getDateInscit() {
+        return dateInscit;
+    }
+
+    public void setDateInscit(Date dateInscit) {
+        this.dateInscit = dateInscit;
+    }
+
+    public Long getNbrVisite() {
+        return nbrVisite;
+    }
+
+    public void setNbrVisite(Long nbrVisite) {
+        this.nbrVisite = nbrVisite;
+    }
+
+    public List<Compte> getListComptes() {
+        return listComptes;
+    }
+
+    public void setListComptes(List<Compte> listComptes) {
+        this.listComptes = listComptes;
     }
 }
