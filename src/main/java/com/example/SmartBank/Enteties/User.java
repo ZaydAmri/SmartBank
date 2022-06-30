@@ -9,16 +9,16 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
-    public String ipAdress;
-    public String nom;
-    public String prenom;
-    public String adress;
-    public String cin;
-    public String telephone;
-    public String email;
-    public String nomUtilisateur;
-    public String motDePasse;
+    private Long id;
+    private String ipAdress;
+    private String nom;
+    private String prenom;
+    private String adress;
+    private String cin;
+    private String telephone;
+    private String email;
+    private String nomUtilisateur;
+    private String motDePasse;
 
     public User() {
     }

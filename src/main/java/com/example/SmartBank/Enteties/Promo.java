@@ -8,10 +8,10 @@ import java.util.Date;
 public class Promo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
-    public String titre;
-    public String description;
-    public Date duree;
+    private Long id;
+    private String titre;
+    private String description;
+    private Date duree;
 
     public Promo() {
     }
