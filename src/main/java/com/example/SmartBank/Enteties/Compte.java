@@ -23,6 +23,7 @@ public class Compte {
     private TypeCompte typeCompte;
     private String sourceRevenus;
     private String rib;
+    private String iban;
     private Date dateOuverture;
     private Boolean visibility;
     private String codeInternet;
@@ -31,15 +32,17 @@ public class Compte {
     public Compte() {
     }
 
-    public Compte(Long id, String state, double solde, Client intitule, String nomSurCarte, TypeCompte typeCompte, String sourceRevenus, String rib, Date dateOuverture, Boolean visibility, String codeInternet, String codeCarte) {
+    public Compte(Long id, String state, double solde, Client intitule, Agence agence, String nomSurCarte, TypeCompte typeCompte, String sourceRevenus, String rib, String iban, Date dateOuverture, Boolean visibility, String codeInternet, String codeCarte) {
         this.id = id;
         this.state = state;
         this.solde = solde;
         this.intitule = intitule;
+        this.agence = agence;
         this.nomSurCarte = nomSurCarte;
         this.typeCompte = typeCompte;
         this.sourceRevenus = sourceRevenus;
         this.rib = rib;
+        this.iban = iban;
         this.dateOuverture = dateOuverture;
         this.visibility = visibility;
         this.codeInternet = codeInternet;
@@ -140,5 +143,21 @@ public class Compte {
 
     public void setCodeCarte(String codeCarte) {
         this.codeCarte = codeCarte;
+    }
+
+    public Agence getAgence() {
+        return agence;
+    }
+
+    public void setAgence(Agence agence) {
+        this.agence = agence;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
     }
 }
