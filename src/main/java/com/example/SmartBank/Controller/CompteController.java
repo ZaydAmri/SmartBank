@@ -132,27 +132,13 @@ public class CompteController {
             }
         }
 
-
-
-         String ribValue = codeBanque + codeGuichet + numCompte + calculCleRib(codeBanque,codeGuichet,numCompte)+ newCodePays+"00";
-
-
-        //String first10Num = String.valueOf(Long.parseLong(ribValue.substring(0,10)) % 97);
-       // String sec10Num = String.valueOf(Long.parseLong(first10Num + ribValue.substring(11,8)) % 97);
-        //String sec210Num = first10Num + ribValue.substring(11,8);
-        System.out.println(ribValue);
-        System.out.println(String.valueOf(ribValue.toCharArray(),10,8));
-        System.out.println(ribValue.substring(0,10));
-        System.out.println(ribValue.substring(10,18));
-        System.out.println("sequence =>" + ribValue.subSequence(10,8));
-        return  ribValue.substring(5,5);
-        /*;
-        String thr10Num = String.valueOf(Long.parseLong(sec10Num + ribValue.substring(19,8)) % 97);
-        String fou10Num = String.valueOf(Long.parseLong(thr10Num + ribValue.substring(27,3)) % 97);
+        String ribValue = codeBanque + codeGuichet + numCompte + calculCleRib(codeBanque,codeGuichet,numCompte)+ newCodePays+"00";
+        String first10Num = String.valueOf(Long.parseLong(ribValue.substring(0,10)) % 97);
+        String sec10Num = String.valueOf(Long.parseLong(first10Num + ribValue.substring(10,18)) % 97);
+        String thr10Num = String.valueOf(Long.parseLong(sec10Num + ribValue.substring(18,26)) % 97);
+        String fou10Num = String.valueOf(Long.parseLong(thr10Num + ribValue.substring(26,29)) % 97);
         String cleIban = String.valueOf(98 - Long.parseLong(fou10Num));
-
-
-        return codePays + cleIban + generateRib(codeBanque,codeGuichet,numCompte);*/
+        return codePays + cleIban + generateRib(codeBanque,codeGuichet,numCompte);
 
     }
 
