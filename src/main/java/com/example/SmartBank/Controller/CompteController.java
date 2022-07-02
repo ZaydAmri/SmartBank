@@ -20,6 +20,7 @@ public class CompteController {
     @Autowired
     CompteService compteService;
 
+
     public Boolean checkExistingContrat(String contrat) {
 
         for (int i = 0; i < TypeCompte.values().length; i++) {
@@ -32,17 +33,23 @@ public class CompteController {
         return false;
 
     }
-    public String calculCleRib(String codeBanque,String codeGuichet,String numCompte){
-        return String.valueOf(97 - ((89 * Integer.parseInt(codeBanque) + 15 * Integer.parseInt(codeGuichet) + 3 * Integer.parseInt(numCompte)) % 97));
+    @GetMapping("getKeyOfRib")
+    public long calculCleRib(@RequestParam("codeB") String codeBanque,@RequestParam("codeG") String codeGuichet,@RequestParam("numC") String numCompte){
+      // return String.valueOf(97 - ((89 * Integer.parseInt(codeBanque) + 15 * Integer.parseInt(codeGuichet) + 3 * Integer.parseInt(numCompte)) % 97));
+        //return codeBanque+codeGuichet+numCompte;
+        return 97 - ((89 * Integer.parseInt(codeBanque)+ 15 * Integer.parseInt(codeGuichet) + 3 * Long.parseLong(numCompte)) % 97);
     }
 
-    public String generateRib (String codeBanque,String codeGuichet,String numCompte){
+    @GetMapping("getRib")
+    public String generateRib (@RequestParam("codeB") String codeBanque,@RequestParam("codeG") String codeGuichet,@RequestParam("numC") String numCompte){
         return codeBanque + codeGuichet + numCompte + calculCleRib(codeBanque,codeGuichet,numCompte);
     }
 
-    public String calculIban(String codePays){
+    @GetMapping("getIban")
+    public String calculIban(@RequestParam("codeP") String codePays,@RequestParam("codeB") String codeBanque,@RequestParam("codeG") String codeGuichet,@RequestParam("numC") String numCompte){
         String newCodePays = "";
-        for(int i=codePays.length() - 1; i>=0;i--){
+        //int i=codePays.length() - 1; i>=0;i--
+        for(int i=0; i<codePays.length();i++){
             switch (codePays.charAt(i)) {
                 case 'A':
                    newCodePays = newCodePays + "10";
@@ -125,9 +132,27 @@ public class CompteController {
             }
         }
 
-        /*----------------------  to do ----------------------*/
 
-        return null;
+
+         String ribValue = codeBanque + codeGuichet + numCompte + calculCleRib(codeBanque,codeGuichet,numCompte)+ newCodePays+"00";
+
+
+        //String first10Num = String.valueOf(Long.parseLong(ribValue.substring(0,10)) % 97);
+       // String sec10Num = String.valueOf(Long.parseLong(first10Num + ribValue.substring(11,8)) % 97);
+        //String sec210Num = first10Num + ribValue.substring(11,8);
+        System.out.println(ribValue);
+        System.out.println(String.valueOf(ribValue.toCharArray(),10,8));
+        System.out.println(ribValue.substring(0,10));
+        System.out.println(ribValue.substring(10,18));
+        System.out.println("sequence =>" + ribValue.subSequence(10,8));
+        return  ribValue.substring(5,5);
+        /*;
+        String thr10Num = String.valueOf(Long.parseLong(sec10Num + ribValue.substring(19,8)) % 97);
+        String fou10Num = String.valueOf(Long.parseLong(thr10Num + ribValue.substring(27,3)) % 97);
+        String cleIban = String.valueOf(98 - Long.parseLong(fou10Num));
+
+
+        return codePays + cleIban + generateRib(codeBanque,codeGuichet,numCompte);*/
 
     }
 
